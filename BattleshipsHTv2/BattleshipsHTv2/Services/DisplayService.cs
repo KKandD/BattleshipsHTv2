@@ -28,9 +28,9 @@ namespace BattleshipsHTv2.Services
         {
             Clear();
             Square[,] boardToPrint = board.Ocean;
-            Square s = new Square(11, 11);
-            string water = s.GetCharacter().ToString();
-            ConsoleColor waterColor = s.GetColore();
+            Square square = new Square(11, 11);
+            string water = square.GetCharacter().ToString();
+            ConsoleColor waterColor = square.GetColor();
             Console.WriteLine("    A B C D E F G H I J ");
 
 
@@ -50,7 +50,7 @@ namespace BattleshipsHTv2.Services
                     }
                     else
                     {
-                        Print($"{boardToPrint[j, i].GetCharacter()} ", boardToPrint[j, i].GetColore());
+                        Print($"{boardToPrint[j, i].GetCharacter()} ", boardToPrint[j, i].GetColor());
                     }
                 }
                 Console.WriteLine();
@@ -76,7 +76,7 @@ namespace BattleshipsHTv2.Services
                 {
                     if ((j >= shipCords.xmin && j <= shipCords.xmax) && (i >= shipCords.ymin && i <= shipCords.ymax))
                     {
-                        if (board.possibleShip(ship))
+                        if (board.PossibleShip(ship))
                         {
                             Print("X ", ConsoleColor.Green);
                         }
@@ -85,7 +85,7 @@ namespace BattleshipsHTv2.Services
                             Print("X ", ConsoleColor.DarkRed);
                         }
                     }
-                    else { Print($"{boardToPrint[j, i].GetCharacter()} ", boardToPrint[j, i].GetColore()); }
+                    else { Print($"{boardToPrint[j, i].GetCharacter()} ", boardToPrint[j, i].GetColor()); }
 
                 }
                 Console.WriteLine();
@@ -96,9 +96,9 @@ namespace BattleshipsHTv2.Services
         {
             Clear();
             Square[,] boardToPrint = board.Ocean;
-            Square s = new Square(11, 11);
-            string water = s.GetCharacter().ToString();
-            ConsoleColor waterColor = s.GetColore();
+            Square square = new Square(11, 11);
+            string water = square.GetCharacter().ToString();
+            ConsoleColor waterColor = square.GetColor();
 
             Console.WriteLine("    A B C D E F G H I J ");
 
@@ -131,7 +131,7 @@ namespace BattleshipsHTv2.Services
                         }
                         else
                         {
-                            Print($"{boardToPrint[j, i].GetCharacter()} ", boardToPrint[j, i].GetColore());
+                            Print($"{boardToPrint[j, i].GetCharacter()} ", boardToPrint[j, i].GetColor());
                         }
 
 
@@ -159,31 +159,17 @@ namespace BattleshipsHTv2.Services
 
         private void PrintReverse(string s)
         {
-            Console.BackgroundColor = Foreground;
-            Console.ForegroundColor = Background;
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine(s);
-            Console.BackgroundColor = Background;
-            Console.ForegroundColor = Foreground;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
         }
         private void Print(string s, ConsoleColor col)
         {
             Console.ForegroundColor = col;
             Console.Write(s);
             Console.ForegroundColor = Foreground;
-        }
-        private void Print(string c)
-        {
-            Console.Write(c);
-        }
-        private void Print(char c, ConsoleColor col)
-        {
-            Console.ForegroundColor = col;
-            Console.Write(c);
-            Console.ForegroundColor = Foreground;
-        }
-        private void Print(char c)
-        {
-            Console.Write(c);
         }
 
         public void PrintMessage(string msg)

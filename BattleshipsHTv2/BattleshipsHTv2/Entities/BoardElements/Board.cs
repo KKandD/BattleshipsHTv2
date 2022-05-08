@@ -93,7 +93,7 @@ namespace BattleshipsHTv2.Entities.BoardElements
                 currentSquare.SquareStatus = SquareStatusEnum.buoy;
         }
 
-        public bool possibleShip(Ship ship)
+        public bool PossibleShip(Ship ship)
         {
             for (int i = 0; i < ship.Length; i++)
             {

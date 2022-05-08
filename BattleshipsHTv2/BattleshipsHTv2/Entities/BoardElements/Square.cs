@@ -45,7 +45,7 @@ namespace BattleshipsHTv2.Entities.BoardElements
             SquareStatus = status;
         }
 
-        public ConsoleColor GetColore()
+        public ConsoleColor GetColor()
         {
             switch ((int)SquareStatus)
             {

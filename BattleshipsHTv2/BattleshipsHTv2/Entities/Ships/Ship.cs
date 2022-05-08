@@ -10,7 +10,7 @@ namespace BattleshipsHTv2.Entities.Ships
 {
     public class Ship
     {
-        public int Length { get; private set; }
+        public int Length { get; set; }
         public (int x, int y) OriginPoint { get; set; }
         public DirectionEnum Direction { get; set; }
         public ShipTypeEnum ShipType { get; set; }
